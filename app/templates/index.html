@@ -1,0 +1,61 @@
+{% load static %}
+{% load socialaccount %}
+
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Create Vacation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+
+    
+</head>
+<body>
+
+  <a href="{% url 'account_logout' %}" class="btn btn-danger mx-5 mt-4"> Logout </a>
+
+
+
+     <div class="container">
+
+       {% if sas %}
+       <h6 class="alert alert-success">Your Vacation Reservation is Successfly </h6>
+       {% endif %}
+
+       {% if err %}
+       <h6 class="alert alert-danger">Your Vacation Reservation is not Submitted Becouse you Have an error  </h6>
+       {% endif %}
+
+
+        <h3 class="heading">Welcome {{ user.username }} &#128075; <br> You Want To Take a Vacation ... </h3>
+
+
+        
+
+        <form method="POST" id="vaction" class="mt-2">
+        <input class="textInput"  mt-4" id="reason" name="reason" type="text" size="100" requierd placeholder="write your reason ...   &#129300;"><br>
+
+             {% csrf_token %}
+           <div class="form-group">
+            <label for="from">From:</label>
+            <input type="date" id="from" name="from">
+           </div>
+
+           <div class="form-group mt-3 text-center">
+            <label for="to" class="m-2">To:</label>
+            <input type="date" id="to" name="to">
+           </div>
+
+        <input class="mt-5 btn btn-primary w-50"  type="submit" class="btn btn-primary" value="Take Vacation">
+          </form>          
+ 
+    </div> 
+
+
+    
+
+</body>
+</html>
