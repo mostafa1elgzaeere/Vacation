@@ -14,7 +14,7 @@ class Vacation(Model):
     
     
 class CustomUser(AbstractUser):
-    mobile_number=IntegerField(max_length=25,null=False)
+    mobile_number=IntegerField(max_length=25)
     
     def __str__(self):
         return f"{self.username}"
