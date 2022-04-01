@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 SITE_ID = 1
+
 AUTH_USER_MODEL = 'app.CustomUser'
 
 MIDDLEWARE = [

@@ -1,10 +1,10 @@
 from django.db.models import *
 from django.contrib.auth.models import User
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractBaseUser,AbstractUser
 
 
 class Vacation(Model):
-    employee=OneToOneField('CustomUser',on_delete=CASCADE,unique=True)
+    employee=ForeignKey('CustomUser',on_delete=CASCADE,unique=True)
     start_at=DateField()
     end_at=DateField()
     reason=CharField(max_length=200)
